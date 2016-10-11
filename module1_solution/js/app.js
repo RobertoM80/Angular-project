@@ -10,6 +10,7 @@
 		$scope.items = ''
 		$scope.message = '';
 		$scope.style = '';
+		$scope.animation = '';
 
 		$scope.checkIfToMuch = function() {
 			var numberOfItems = $scope.numberOfItems();
@@ -17,12 +18,15 @@
 			if (numberOfItems === 0 || numberOfItems === '') {
 				$scope.message = 'Please, enter data first...';
 				$scope.style = 'red;';
+				$scope.animation = 'infinite flash';
 			} else if (numberOfItems <= 3) {
 				$scope.message = 'Enjoy!';
 				$scope.style = 'green;';
+				$scope.animation = 'infinite pulse';
 			} else {
 				$scope.message = 'Too much!';
 				$scope.style = 'green;';
+				$scope.animation = 'zoomInRight';
 			}
 			
 		}
