@@ -18,15 +18,15 @@
 			if (numberOfItems === 0 || numberOfItems === '') {
 				$scope.message = 'Please, enter data first...';
 				$scope.style = 'red;';
-				$scope.animation = 'infinite flash';
+				$scope.animation = 'animated infinite flash';
 			} else if (numberOfItems <= 3) {
 				$scope.message = 'Enjoy!';
 				$scope.style = 'green;';
-				$scope.animation = 'infinite pulse';
+				$scope.animation = 'animated infinite pulse';
 			} else {
 				$scope.message = 'Too much!';
 				$scope.style = 'green;';
-				$scope.animation = 'zoomInRight';
+				$scope.animation = 'animated zoomInRight';
 			}
 			
 		}
