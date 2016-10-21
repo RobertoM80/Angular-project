@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Shopping List Check Off</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      body {
+        font-family: verdana;
+        margin: 0 auto;
+      }
+      .emptyMessage {
+        font-weight: bold;
+        color: red;
+        font-size: 1.2em;
+      }
+      .listBlock {
+        background-color: lightblue;
+        border: 1px solid grey;
+        border-radius: 10px;
+        min-height: 500px;
+        width: 48%;
+        margin: 10px;
+        box-shadow: 6px 1px 10px #888888;
+        
+      }
+      li {
+        margin-bottom: 7px;
+        font-size: 1.2em;
+      }
+      li > button {
+        margin-left: 6px;
+      }
+      button > span {
+        color: green;
+      }
+      h3 {
+        color: red
+      }
+    </style>
+  </head>
+<body ng-app='ShoppingListCheckOff'>
+  <div class="container">
+  <h1 class='text-center'>Shopping List Check Off</h1>
+  <br>
+  <div class="addItems" ng-controller='AddItemController as itemAdder'>
+    <h2 class="text-center">Add Item to the list</h2>
+    <p class='text-center'>Name:</p>
+    <input class='center-block' type="text" ng-model='itemAdder.itemName'> <br>
+    <p class='text-center'>Quantity:</p> 
+    <input class='center-block' type="text" ng-model='itemAdder.itemQuantity'>
+    <br>
+    <button class="btn btn-md btn-warning center-block"
+    ng-click='itemAdder.pushNewItem();'>Add Item</button><br>
+    
+    <h3 class='text-center'>{{ itemAdder.errorMessage(); }}</h3>
+  </div>
+
+  <div class="row">
+
+    <!-- To Buy List -->
+    <div class="col-md-6 listBlock" ng-controller='ToBuyController as toBuy'>
+     <h2>To Buy:</h2>
+     <ul>
+       <li ng-repeat='item in toBuy.items'>Buy {{ item.quantity }} {{ item.name }} 
+        <button class="btn btn-xs btn-success" 
+        ng-click='toBuy.bought($index)'>Bought</button>
+        <button class="btn btn-xs btn-danger" 
+        ng-click='toBuy.cancelItem($index)'>Cancel</button>
+       </li>
+     </ul>
+     <div class="emptyMessage" ng-if='toBuy.items.length === 0;'>Everything is bought!</div>
+    </div>
+
+    <!-- Already Bought List -->
+    <div class="col-md-6 listBlock" ng-controller='AlreadyBoughtController as bought'>
+     <h2>Already Bought:</h2>
+     <ul>
+       <li ng-repeat='item in bought.items'>
+        Bought {{ item.quantity }} {{ item.name }}
+        <button class="btn btn-xs btn-danger" 
+        ng-click='bought.cancelItem($index)'>Cancel</button>
+      </li>
+     </ul>
+     <div class="emptyMessage" ng-if='bought.items.length === 0;'>Nothing bought yet.</div>
+    </div>
+  </div>
+</div>
+<script src='js/angular.min.js'></script>
+<script src='js/app.js'></script>
+</body>
+</html>
