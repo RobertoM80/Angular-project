@@ -30,10 +30,6 @@
 						name: 'Choco Something',
 						quantity: 6
 					},
-					{
-						name: 'Meat Balls',
-						quantity: 14
-					},
 				];
 
 	angular.module('ShoppingListCheckOff', [])
