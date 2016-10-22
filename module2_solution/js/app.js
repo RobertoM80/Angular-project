@@ -116,6 +116,7 @@
 					quantity: itemQuantity
 				};
 				toBuyItems.push(newItem);
+				service.errorMessage = '';
 			} else if(itemName === '' && itemQuantity !== ''){
 				service.errorMessage = 'Please, Insert an Item as well..';
 			} else if(itemQuantity === '' && itemName !== '') {
