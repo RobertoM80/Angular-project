@@ -45,6 +45,7 @@
 				promise.then(function(response) {
 					if (response.length === 0) {
 						finder.message = 'Nothing Found';
+						finder.found = [];
 					} else {
 						finder.found = response;
 						finder.message = '';
