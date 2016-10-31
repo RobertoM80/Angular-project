@@ -1,0 +1,31 @@
+<table class="table table-striped">
+  <tr ng-if='finderGen.found.length > 0'>
+    <th>
+      Name
+    </th>
+    <th>
+      Short Name
+    </th>
+    <th>
+      Description
+    </th>
+    <th>
+      Delete Button
+    </th>
+  </tr>
+  <tr ng-repeat='item in finderGen.found track by $index'>
+    <td>
+      {{ item.name }}
+    </td>
+    <td> 
+      {{ item.short_name }} 
+    </td>
+    <td>
+      {{ item.description }}
+    </td>
+    <td>
+      <button class='btn btn-danger btn-xs cancelItem' ng-click='finderGen.onRemove({arg: $index});'>Don't want this one!</button>
+    </td>
+  </tr>
+</table>
+<h2>{{ finderGen.message }}</h2>
