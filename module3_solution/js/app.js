@@ -35,7 +35,10 @@
 		}
 
 		finder.getMatchedMenuItems = function(item) {	
+			finder.searchBar = true;
+			finder.found = [];
 			if (item === '' || item === undefined) {
+				finder.searchBar = false;
 				finder.message = 'Nothing Found';
 			} else {
 				finder.message = '';
@@ -43,6 +46,7 @@
 				var promise = service.getMatchedMenuItems(item);
 
 				promise.then(function(response) {
+					finder.searchBar = false;
 					if (response.length === 0) {
 						finder.message = 'Nothing Found';
 						finder.found = [];
