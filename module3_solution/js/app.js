@@ -84,7 +84,7 @@
 				var item;
 				for(var i = 0; i < items.length; i++) {
 					item = items[i].name.toLowerCase();
-					if (item.indexOf(searchTerm.toLowerCase()) !== -1) {
+					if (item.indexOf(searchTerm.toLowerCase()) !== -1) { //lower could be done with filter factory 
 						foundItems.push(items[i]);
 					}
 				}
