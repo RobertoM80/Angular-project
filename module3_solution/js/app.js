@@ -80,10 +80,11 @@
 			})
 			.then(function(response) {
 				var items = response.data.menu_items;
+				console.log(items);
 				foundItems = [];
 				var item;
 				for(var i = 0; i < items.length; i++) {
-					item = items[i].name.toLowerCase();
+					item = items[i].description.toLowerCase();
 					if (item.indexOf(searchTerm.toLowerCase()) !== -1) { //lower could be done with filter factory 
 						foundItems.push(items[i]);
 					}
