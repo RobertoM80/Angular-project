@@ -1,0 +1,16 @@
+<a class='text-center' ui-sref='home'><h3>Home</h3></a>
+
+<h1 class='text-center'>Categories:</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>
+      Category Name
+    </th>
+  </tr>
+  <tr class='item' ng-repeat='item in $ctrl.categories' ui-sref='cat-items({categoryShortName:item.short_name})'>
+    <td>
+      {{ item.name }}
+    </td>
+  </tr>
+</table>
