@@ -1,0 +1,4 @@
+<!-- <h1 class='text-center'>Here are Your Details</h1> -->
+<h2 class='text-center' ng-if='myInfo.noChoseYet'>Not Signed Up Yet</h2>
+<h3 class='text-center sign-up' ng-if='myInfo.noChoseYet' ui-sref='public.sign-up'>SignUp Now!</h3>
+<my-info-details item="myInfo.item" ng-if='!myInfo.noChoseYet'></my-info-details>

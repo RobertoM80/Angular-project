@@ -1,0 +1,11 @@
+<div class="details">
+	<!-- <h2 class='text-center'>User First Name</h2>
+	<h2 class='text-center'>User Last Name</h2> -->
+	<h2 class='text-center'>Your favourite Dish is:</h2>
+	<h3 class='text-center'>{{ $ctrl.item.name }}</h3><br>
+	<div class="itemImg">
+		<img class="img-responsive center-block" width="250" height="150" ng-src="{{$ctrl.path}}/images/{{$ctrl.item.short_name}}.jpg" alt="{{item.name}}">
+	</div>
+	<br><br><p class='text-center'> {{ $ctrl.item.description }} </p>
+
+</div>

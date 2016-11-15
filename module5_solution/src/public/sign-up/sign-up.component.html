@@ -1,0 +1,61 @@
+
+
+
+<form name='signUpForm' class='newsletterForm center-block' novalnameate>
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" class="form-control" name="firstName" placeholder="Jane"
+      ng-model='$ctrl.user.firstName'
+      required
+      minlength='4'
+      ng-maxlength='10'>
+      <span
+        ng-if="(signUpForm.firstName.$error.minlength || signUpForm.FirstName.$error.required)
+        && signUpForm.firstName.$touched">
+      <p>First Name must be at least 3 characters long</p></span>
+      <span
+        ng-if="signUpForm.firstName.$error.maxlength && signUpForm.firstName.$touched">First Name must be no longer than 15 characters</span>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" class="form-control" name="lastName" placeholder="Doe"
+      ng-model='$ctrl.user.lastName'
+      required
+      minlength='4'
+      ng-maxlength='10'>
+      <span
+        ng-if="(signUpForm.lastName.$error.minlength || signUpForm.lastName.$error.required)
+        && signUpForm.lastName.$touched">
+      <p>Last Name must be at least 3 characters long</p></span>
+      <span
+        ng-if="signUpForm.lastName.$error.maxlength && signUpForm.lastName.$touched">Last Name must be no longer than 15 characters</span>
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" name="email" placeholder="Email"
+      ng-model='$ctrl.user.email'
+      required>
+      <span
+        ng-if="signUpForm.email.$invalid && signUpForm.email.$touched"><p>Enter the email in the format user@example.com</p></span>
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input type="text" class="form-control" name="phone" placeholder="xx-xxx-xxxx"
+      ng-model='$ctrl.user.phoneNum'
+      pattern='(\d{2})-(\d{3})-(\d{4})'>
+      <span
+        ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched"><p>Phone must be entered in the format ##-###-####</p></span>
+  </div>
+  <div class="form-group">
+    <label for="menuItemNumber">Best Item Number</label>
+    <input type="text" class="form-control" name="menuItemNumber" placeholder="A1"
+      ng-model='$ctrl.user.menuItemNumber'
+      ng-change='$ctrl.checkAvailability();'>
+    <span ng-if='$ctrl.doesItemExist'><p class='found'>Your Information has been saved.</p></span>
+    <span ng-if='$ctrl.itemFound'><p class='found'>Item Found!!</p></span>
+    <span ng-if='!$ctrl.doesItemExist && !$ctrl.itemFound && signUpForm.menuItemNumber.$touched'><p>No such menu number exists.</p></span>
+  </div>
+  <button type="submit" class="btn btn-default"
+    ng-disabled='signUpForm.$invalid'
+    ng-click='$ctrl.submit();'>Submit</button>
+</form>
