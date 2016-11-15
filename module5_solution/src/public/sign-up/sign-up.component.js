@@ -24,6 +24,11 @@ function SignUpComponentController(MenuService, UserPreferenceService) {
 
 	$ctrl.submit = function() {
 		console.log('item: ', $ctrl.user.menuItemNumber);
+		console.log('first', $ctrl.user.firstName)
+		UserPreferenceService.firstName = $ctrl.user.firstName;
+		UserPreferenceService.lastName = $ctrl.user.lastName;
+		UserPreferenceService.email = $ctrl.user.email;
+		UserPreferenceService.phone = $ctrl.user.phoneNum;
 		return MenuService.getItem($ctrl.user.menuItemNumber)
 		.then(function(response) {
 			console.log(response);

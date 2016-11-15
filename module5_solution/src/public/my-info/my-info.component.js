@@ -6,18 +6,25 @@ angular.module('public')
 	templateUrl: 'src/public/my-info/my-info.component.html',
 	bindings: {
 		item: '<',
-		path: '<'
+		path: '<',
+		info: '<'
 	},
 	controller: MyInfoComponentController
 })
 
-MyInfoComponentController.$inject = ['MenuService', 'ApiPath'];
-function MyInfoComponentController(MenuService, ApiPath) {
+MyInfoComponentController.$inject = ['MenuService', 'ApiPath', 'UserPreferenceService'];
+function MyInfoComponentController(MenuService, ApiPath, UserPreferenceService) {
 	var $ctrl = this;
+	$ctrl.info = {};
+
+	$ctrl.info.firstName = UserPreferenceService.firstName;
+	$ctrl.info.lastName = UserPreferenceService.lastName
+	$ctrl.info.email = UserPreferenceService.email
+	$ctrl.info.phone = UserPreferenceService.phone
 
 	//$ctrl.item = UserPreferenceService.item;
 	$ctrl.path = ApiPath;
-	//console.log(UserPreferenceService.item);
+	console.log('USERSERVICE', UserPreferenceService);
 }
 
 })();
